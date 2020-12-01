@@ -30,23 +30,21 @@ const SelectWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 49%;
-  @media (max-width: 576px) {
-    width: 100%;
-  }
+  margin-top: -1em;
 `;
+
 const Dropdown = React.forwardRef((props, ref) => {
   const { type, value, onChange, options } = props;
   return (
     <SelectWrapper>
-      <InnerLabel htmlFor={type}>{type}</InnerLabel>
+      <InnerLabel htmlFor={type}>Select characters by {type}</InnerLabel>
       <Select ref={ref} id={type} value={value} onChange={onChange}>
         <option value="" disabled>
           Select {type}
         </option>
-        {options.map((option) => {
+        {options.map((option, index) => {
           return (
-            <option key={option.id} value={option.name}>
+            <option key={index} value={option.name}>
               {option.name}
             </option>
           );
