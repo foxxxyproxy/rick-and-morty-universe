@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Loader from "../UI/Loader";
 import Card from "./Card";
 
 const CharactersList = (props) => {
   const { isLocation, isEpisode, residents } = props;
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -12,6 +13,8 @@ const CharactersList = (props) => {
     setCharacters([]);
 
     residents.forEach((resident) => {
+      setLoading(true);
+
       fetch(resident)
         .then((response) => response.json())
         .then((data) => {
@@ -26,9 +29,14 @@ const CharactersList = (props) => {
         })
         .finally(() => {
           setCharacters(dataArray);
+          setLoading(false);
         });
     });
   }, [residents]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>

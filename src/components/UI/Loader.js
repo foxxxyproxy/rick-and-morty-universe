@@ -45,6 +45,9 @@ const dash = keyframes`
 const SVG = styled.svg`
   animation: ${rotator} 1.4s linear infinite;
 
+  display: block;
+  margin: auto;
+
   .path {
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
