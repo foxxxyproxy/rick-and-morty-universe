@@ -9,14 +9,15 @@ const FilterInfo = styled.div`
   border: 3px solid ${(p) => p.theme.primary};
   background: ${(p) => p.theme.primary};
   color: #fff;
+  box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
 `;
 
 const Header = styled.h2`
-  margin-top: -1.2em;
-  margin-bottom: 0.2em;
+  margin-top: -1.5em;
+  margin-bottom: 0.5em;
   line-height: 1;
   @media (max-width: 576px) {
-    margin-top: 0;
+    margin-top: 1em;
   }
 `;
 
@@ -34,13 +35,19 @@ const SelectedFilter = (props) => {
   const { filter, isLocation, isEpisode, isDimension } = props;
   return (
     <FilterContainer>
-      <Header>You Select:</Header>
+      <Header>You selected:</Header>
       <FilterInfo>
         {isLocation && (
           <>
-            <p>{`Location name: ${filter.name}`}</p>
-            <p>{`Dimension: ${filter.dimension}`}</p>
-            <p>{`Type: ${filter.type}`}</p>
+            <p>
+              <b>Location name:</b> {filter.name}
+            </p>
+            <p>
+              <b>Dimension:</b> {filter.dimension}
+            </p>
+            <p>
+              <b>Type:</b> {filter.type}
+            </p>
           </>
         )}
 

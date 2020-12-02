@@ -10,7 +10,7 @@ const LinkWrapper = styled(NavLink)`
   border-radius: 0.8em;
 
   &:hover {
-    box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
+    box-shadow: -10px 10px 25px ${(p) => p.theme.shadowColor};
   }
 
   display: flex;

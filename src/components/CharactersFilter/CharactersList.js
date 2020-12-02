@@ -37,6 +37,9 @@ const CharactersList = (props) => {
   if (loading) {
     return <Loader />;
   }
+  if (!residents || residents.length === 0) {
+    return <p>No characters to show</p>;
+  }
 
   return (
     <>

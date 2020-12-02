@@ -4,7 +4,8 @@ import styled from "styled-components";
 const ContainerWrapper = styled.div`
   width: 95%;
   max-width: 60em;
-  margin: 2em auto;
+  margin: 0 auto;
+  margin-bottom: 2em;
   display: flex;
   justify-content: space-between;
   //align-items: flex-start;

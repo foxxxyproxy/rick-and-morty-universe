@@ -8,7 +8,8 @@ const Select = styled.select`
   border-radius: 0.8em;
   font-size: 1rem;
   line-height: 1.2;
-  border: 3px solid ${(p) => p.theme.primary};
+  border: 3px solid
+    ${(p) => (p.isActive ? p.theme.headerColor : p.theme.primary)};
   appearance: none;
   cursor: pointer;
 
@@ -35,7 +36,7 @@ const SelectWrapper = styled.div`
 `;
 
 const Dropdown = React.forwardRef((props, ref) => {
-  const { type, value, onChange, options } = props;
+  const { type, value, onChange, options, isActive = false } = props;
   return (
     <SelectWrapper>
       <InnerLabel htmlFor={type}>Select characters by {type}</InnerLabel>
@@ -44,6 +45,7 @@ const Dropdown = React.forwardRef((props, ref) => {
         id={type}
         value={value ? value : ""}
         onChange={onChange}
+        isActive={isActive}
       >
         <option value="" disabled>
           Select {type}

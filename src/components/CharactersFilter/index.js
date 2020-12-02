@@ -112,6 +112,7 @@ function CharactersFilter() {
                 options={locations}
                 value={selectedLocation}
                 onChange={handleLocationChange}
+                isActive={selectedLocation}
               />
             )}
 
@@ -121,6 +122,7 @@ function CharactersFilter() {
                 options={episodes}
                 value={selectedEpisode}
                 onChange={handleEpisodeChange}
+                isActive={selectedEpisode}
               />
             )}
 
@@ -130,6 +132,7 @@ function CharactersFilter() {
                 options={dimensions}
                 value={selectedDimension}
                 onChange={handleDimensionChange}
+                isActive={selectedDimension}
               />
             )}
           </Filters>

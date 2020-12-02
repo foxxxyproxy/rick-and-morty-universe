@@ -1,7 +1,7 @@
 import React from "react";
-import LogoIcon from "./logoIcon";
+import LogoIcon from "../../assets/logoIcon";
 
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderWrap = styled.header`

@@ -6,6 +6,7 @@ import useFetch from "../../utils/useFetch";
 import Loader from "../UI/Loader";
 import { getDateOnlyString } from "../../utils/helpers";
 import Container from "../UI/Container";
+import Header from "../Header";
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   color: ${(p) => p.theme.headerColor};
   background: ${(p) => p.theme.primary};
-  box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
+  box-shadow: -10px 10px 25px ${(p) => p.theme.shadowColor};
   border-radius: 0.8em;
   width: 100%;
   padding: 2em;
@@ -60,45 +61,49 @@ function Character() {
   }
 
   return (
-    <Container>
-      <Wrapper>
-        <ImageWrapper>
-          <img src={info.image} alt={info.name} />
-        </ImageWrapper>
-        <Info>
-          <p>
-            <b>Name: </b> {info.name}
-          </p>
-          <p>
-            <b>Status: </b> {info.status}
-          </p>
-          <p>
-            <b>Species: </b> {info.species}
-          </p>
-          <p>
-            <b>Type: </b> {info.type || "Unknown"}
-          </p>
-          <p>
-            <b>Gender: </b> {info.gender}
-          </p>
-          {info.origin && (
+    <>
+      <Header />
+      <Container>
+        <h1>Character's Info</h1>
+        <Wrapper>
+          <ImageWrapper>
+            <img src={info.image} alt={info.name} />
+          </ImageWrapper>
+          <Info>
             <p>
-              <b>Origin: </b> {info.origin.name}
+              <b>Name: </b> {info.name}
             </p>
-          )}
-          {info.location && (
             <p>
-              <b>Location: </b> {info.location["name"]}
+              <b>Status: </b> {info.status}
             </p>
-          )}
-          {info.created && (
             <p>
-              <b>Created: </b> {getDateOnlyString(new Date(info.created))}
+              <b>Species: </b> {info.species}
             </p>
-          )}
-        </Info>
-      </Wrapper>
-    </Container>
+            <p>
+              <b>Type: </b> {info.type || "Unknown"}
+            </p>
+            <p>
+              <b>Gender: </b> {info.gender}
+            </p>
+            {info.origin && (
+              <p>
+                <b>Origin: </b> {info.origin.name}
+              </p>
+            )}
+            {info.location && (
+              <p>
+                <b>Location: </b> {info.location["name"]}
+              </p>
+            )}
+            {info.created && (
+              <p>
+                <b>Created: </b> {getDateOnlyString(new Date(info.created))}
+              </p>
+            )}
+          </Info>
+        </Wrapper>
+      </Container>
+    </>
   );
 }
 
