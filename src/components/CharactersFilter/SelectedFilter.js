@@ -31,6 +31,7 @@ const FilterContainer = styled.div`
   }
 `;
 
+//Component for display selected filter: selected location/episode/dimension
 const SelectedFilter = (props) => {
   const { filter, isLocation, isEpisode, isDimension } = props;
   return (

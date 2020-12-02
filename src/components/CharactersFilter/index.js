@@ -46,7 +46,13 @@ function CharactersFilter() {
       .catch((error) => console.error(error));
   }, []);
 
-  //get data from all pages
+  /**
+   * get data from all pages to fill the dropdowns
+   * (won't use it for a real project)
+   * @param {Number} maxPage
+   * @param {String} endpoint
+   * @return {Array} locations, episodes
+   */
   function getAllPages(maxPage, endpoint) {
     let dataArray = [];
 
@@ -71,11 +77,14 @@ function CharactersFilter() {
     }
   }
 
+  /**
+   * get unique dimensions to fill the dropdown
+   * @param {Array} dataArray
+   * @return {Array} unique dimensions
+   */
   function getDimensions(dataArray) {
     let uniqueDimensions = new Set();
     dataArray.forEach((item) => uniqueDimensions.add(item.dimension));
-
-    console.log(Array.from(uniqueDimensions));
     setDimensions(Array.from(uniqueDimensions));
   }
 

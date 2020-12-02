@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import Loader from "../UI/Loader";
 import Card from "./Card";
 
@@ -9,9 +8,6 @@ const DimensionCharactersList = (props) => {
   const [residents, setResidents] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  //console.log(dimension);
-  //console.log({ locations });
 
   useEffect(() => {
     if (dimension && locations) {
@@ -72,7 +68,6 @@ const DimensionCharactersList = (props) => {
       (location) => location.dimension === dimension
     );
     setFilteredLocations(filteredLocations);
-    //console.log(filteredLocations);
   }
 
   if (loading) {
