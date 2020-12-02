@@ -39,14 +39,19 @@ const Dropdown = React.forwardRef((props, ref) => {
   return (
     <SelectWrapper>
       <InnerLabel htmlFor={type}>Select characters by {type}</InnerLabel>
-      <Select ref={ref} id={type} value={value} onChange={onChange}>
+      <Select
+        ref={ref}
+        id={type}
+        value={value ? value : ""}
+        onChange={onChange}
+      >
         <option value="" disabled>
           Select {type}
         </option>
         {options.map((option, index) => {
           return (
             <option key={index} value={JSON.stringify(option)}>
-              {option.name}
+              {type === "dimensions" ? option : option.name}
             </option>
           );
         })}

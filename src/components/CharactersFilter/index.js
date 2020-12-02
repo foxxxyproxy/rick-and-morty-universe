@@ -9,6 +9,7 @@ import DropDown from "../UI/DropDown";
 import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 import CharactersList from "./CharactersList";
+import DimensionCharactersList from "./DimensionCharactersList";
 
 const Filters = styled.div`
   width: 49%;
@@ -22,8 +23,10 @@ const Filters = styled.div`
 function CharactersFilter() {
   const [locations, setLocations] = useState([]);
   const [episodes, setEpisodes] = useState([]);
+  const [dimensions, setDimensions] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState("");
+  const [selectedDimension, setSelectedDimension] = useState(null);
   const [filter, setFilter] = useState("");
   const { get, loading } = useFetch(BASE_URL);
 
@@ -58,6 +61,9 @@ function CharactersFilter() {
         .finally(() => {
           if (endpoint === "location") {
             setLocations([...locations, ...dataArray]);
+            if (page === maxPage) {
+              getDimensions(dataArray);
+            }
           } else if (endpoint === "episode") {
             setEpisodes([...locations, ...dataArray]);
           }
@@ -65,15 +71,32 @@ function CharactersFilter() {
     }
   }
 
+  function getDimensions(dataArray) {
+    let uniqueDimensions = new Set();
+    dataArray.forEach((item) => uniqueDimensions.add(item.dimension));
+
+    console.log(Array.from(uniqueDimensions));
+    setDimensions(Array.from(uniqueDimensions));
+  }
+
   function handleLocationChange(e) {
     setSelectedLocation(e.target.value);
     setFilter(JSON.parse(e.target.value));
     setSelectedEpisode("");
+    setSelectedDimension("");
   }
   function handleEpisodeChange(e) {
     setSelectedEpisode(e.target.value);
     setFilter(JSON.parse(e.target.value));
     setSelectedLocation("");
+    setSelectedDimension("");
+  }
+
+  function handleDimensionChange(e) {
+    setSelectedDimension(e.target.value);
+    setFilter(JSON.parse(e.target.value));
+    setSelectedLocation("");
+    setSelectedEpisode("");
   }
 
   return (
@@ -100,6 +123,15 @@ function CharactersFilter() {
                 onChange={handleEpisodeChange}
               />
             )}
+
+            {dimensions && (
+              <DropDown
+                type="dimensions"
+                options={dimensions}
+                value={selectedDimension}
+                onChange={handleDimensionChange}
+              />
+            )}
           </Filters>
         )}
 
@@ -107,6 +139,7 @@ function CharactersFilter() {
           <SelectedFilter
             isLocation={selectedLocation}
             isEpisode={selectedEpisode}
+            isDimension={selectedDimension}
             filter={filter}
           />
         )}
@@ -127,6 +160,10 @@ function CharactersFilter() {
             isEpisode={selectedEpisode}
             residents={filter.characters}
           />
+        )}
+
+        {filter && selectedDimension && (
+          <DimensionCharactersList dimension={filter} locations={locations} />
         )}
       </Container>
     </>

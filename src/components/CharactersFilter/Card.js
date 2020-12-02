@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LinkWrapper = styled(NavLink)`
   display: none;
@@ -27,7 +26,7 @@ const LinkWrapper = styled(NavLink)`
 `;
 
 const Card = (props) => {
-  const { id, name, image, ...rest } = props.info;
+  const { id, name, image } = props.info;
 
   return (
     <>

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const FilterInfo = styled.div`
@@ -32,7 +31,7 @@ const FilterContainer = styled.div`
 `;
 
 const SelectedFilter = (props) => {
-  const { filter, isLocation } = props;
+  const { filter, isLocation, isEpisode, isDimension } = props;
   return (
     <FilterContainer>
       <Header>You Select:</Header>
@@ -45,14 +44,18 @@ const SelectedFilter = (props) => {
           </>
         )}
 
-        {!isLocation && (
+        {isEpisode && (
           <>
             <p>{`Episode name: ${filter.name} (${filter.episode})`}</p>
             <p>{`Date: ${filter.air_date}`} </p>
           </>
         )}
 
-        {console.log(filter)}
+        {isDimension && (
+          <>
+            <p>{`Dimension name: "${filter}" `}</p>
+          </>
+        )}
       </FilterInfo>
     </FilterContainer>
   );

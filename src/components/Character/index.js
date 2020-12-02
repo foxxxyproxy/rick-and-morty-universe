@@ -45,7 +45,7 @@ function Character() {
   useEffect(() => {
     get(`character/${id}`)
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setInfo(data);
       })
       .catch((error) => console(error));
@@ -76,12 +76,11 @@ function Character() {
             <b>Species: </b> {info.species}
           </p>
           <p>
-            <b>Type: </b> {info.type}
+            <b>Type: </b> {info.type || "Unknown"}
           </p>
           <p>
             <b>Gender: </b> {info.gender}
           </p>
-          {info.origin && console.log(info.origin.name)}
           {info.origin && (
             <p>
               <b>Origin: </b> {info.origin.name}
