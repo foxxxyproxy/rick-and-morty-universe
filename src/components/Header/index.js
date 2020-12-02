@@ -26,6 +26,9 @@ const HeaderWrap = styled.header`
   h1 {
     color: ${(p) => p.theme.headerColor};
     text-shadow: -2px 0px ${(p) => p.theme.shadowColor};
+    @media (max-width: 576px) {
+      font-size: 1.2rem;
+    }
   }
 `;
 

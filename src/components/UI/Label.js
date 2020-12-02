@@ -6,5 +6,5 @@ export const Label = styled.label`
   z-index: 10;
   padding: 0 1.7rem;
   padding-bottom: 2px;
-  color: ${(p) => p.theme.textColorSecondary};
+  color: ${(p) => p.theme.primary};
 `;

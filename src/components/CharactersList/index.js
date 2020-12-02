@@ -6,6 +6,7 @@ import Container from "../UI/Container";
 import Loader from "../UI/Loader";
 import useFetch from "../../utils/useFetch";
 import DropDown from "../UI/DropDown";
+import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 
 const Filters = styled.div`
@@ -17,24 +18,12 @@ const Filters = styled.div`
   }
 `;
 
-const SelectedResult = styled.div`
-  box-sizing: border-box;
-  padding: 0.5em 1.5em;
-  border-radius: 0.8em;
-  font-size: 1rem;
-  line-height: 1.2;
-  border: 3px solid ${(p) => p.theme.primary};
-  width: 35%;
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-`;
-
 function CharactersList() {
   const [locations, setLocations] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState("");
+  const [filter, setFilter] = useState("");
   const { get, loading } = useFetch(BASE_URL);
 
   useEffect(() => {
@@ -75,6 +64,17 @@ function CharactersList() {
     }
   }
 
+  function handleLocationChange(e) {
+    setSelectedLocation(e.target.value);
+    setFilter(JSON.parse(e.target.value));
+    setSelectedEpisode("");
+  }
+  function handleEpisodeChange(e) {
+    setSelectedEpisode(e.target.value);
+    setFilter(JSON.parse(e.target.value));
+    setSelectedLocation("");
+  }
+
   return (
     <>
       <Header />
@@ -87,7 +87,7 @@ function CharactersList() {
                 type="locations"
                 options={locations}
                 value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
+                onChange={handleLocationChange}
               />
             )}
 
@@ -96,22 +96,14 @@ function CharactersList() {
                 type="episodes"
                 options={episodes}
                 value={selectedEpisode}
-                onChange={(e) => setSelectedEpisode(e.target.value)}
+                onChange={handleEpisodeChange}
               />
             )}
           </Filters>
         )}
 
-        {selectedLocation && (
-          <SelectedResult>
-            <p>You Select: </p>
-            {selectedLocation}
-            {console.log(
-              locations.filter((location) => {
-                return location.name === selectedLocation;
-              })
-            )}
-          </SelectedResult>
+        {filter && (
+          <SelectedFilter isLocation={selectedLocation} filter={filter} />
         )}
       </Container>
     </>

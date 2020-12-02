@@ -6,8 +6,8 @@ const ContainerWrapper = styled.div`
   //max-width: 40em;
   margin: 2em auto;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  //justify-content: space-between;
+  //align-items: flex-start;
   flex-direction: row;
 
   @media (max-width: 576px) {

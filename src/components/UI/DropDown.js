@@ -19,6 +19,7 @@ const Select = styled.select`
   background-position-y: 50%;
   margin-bottom: 1em;
   color: ${(p) => p.theme.textColor};
+  font-weight: bold;
 `;
 
 const InnerLabel = styled(Label)`
@@ -44,7 +45,7 @@ const Dropdown = React.forwardRef((props, ref) => {
         </option>
         {options.map((option, index) => {
           return (
-            <option key={index} value={option.name}>
+            <option key={index} value={JSON.stringify(option)}>
               {option.name}
             </option>
           );

@@ -8,6 +8,7 @@ const colors = {
   headerColor: HIGLIGHT,
   textColor: PRIMARY,
   primary: PRIMARY,
+  secondary: SECONDARY,
   pageBackground: "#ffffff",
   shadowColor: HIGHLIGHT_DARK,
   textColorSecondary: SECONDARY,
