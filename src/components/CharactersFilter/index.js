@@ -8,6 +8,7 @@ import useFetch from "../../utils/useFetch";
 import DropDown from "../UI/DropDown";
 import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
+import CharactersList from "./CharactersList";
 
 const Filters = styled.div`
   width: 49%;
@@ -18,7 +19,7 @@ const Filters = styled.div`
   }
 `;
 
-function CharactersList() {
+function CharactersFilter() {
   const [locations, setLocations] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -103,11 +104,33 @@ function CharactersList() {
         )}
 
         {filter && (
-          <SelectedFilter isLocation={selectedLocation} filter={filter} />
+          <SelectedFilter
+            isLocation={selectedLocation}
+            isEpisode={selectedEpisode}
+            filter={filter}
+          />
+        )}
+      </Container>
+
+      <Container>
+        {filter && selectedLocation && (
+          <CharactersList
+            isLocation={selectedLocation}
+            isEpisode={selectedEpisode}
+            residents={filter.residents}
+          />
+        )}
+
+        {filter && selectedEpisode && (
+          <CharactersList
+            isLocation={selectedLocation}
+            isEpisode={selectedEpisode}
+            residents={filter.characters}
+          />
         )}
       </Container>
     </>
   );
 }
 
-export default CharactersList;
+export default CharactersFilter;

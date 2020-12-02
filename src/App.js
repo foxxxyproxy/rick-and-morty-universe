@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import CharactersList from "./components/CharactersList";
+import CharactersFilter from "./components/CharactersFilter";
 import Character from "./components/Character";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect exact from="/" to="/CharactersList" />
-        <Route exact path="/CharactersList" component={CharactersList} />
+        <Redirect exact from="/" to="/CharactersFilter" />
+        <Route exact path="/CharactersFilter" component={CharactersFilter} />
         <Route exact path="/Character/:id" component={Character} />
       </Switch>
     </BrowserRouter>
