@@ -10,11 +10,11 @@
 It runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser <br>
 
-Deployed prototype:[https://rick-and-morty-universe.vercel.app/]
+Deployed prototype:https://rick-and-morty-universe.vercel.app/
 
 ### TODO and thoughts
 There is still a big room for improvement like adding tests, split components into smaller ones. <br>
-I'd like to add a pagination or something like that for showing big responses and make the image-grid more beautiful <br>
+I'd like to add a pagination or something like that for showing big responses and make the image-grid more beautiful. <br>
 
 
 I wanted to give the user an opportunity to see all possible values of locations/episodes/dimensions.<br>
@@ -26,7 +26,7 @@ But I understand that for real projects it's not an efficient, way to make a fil
 ### Screenshots
 #### Desktop version
 <p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/4.png" width="60%">
+  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/4.png" width="70%">
 </p>
 
 #### Mobile version
