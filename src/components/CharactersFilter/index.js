@@ -33,15 +33,13 @@ function CharactersFilter() {
   useEffect(() => {
     get("location")
       .then((data) => {
-        setLocations(data.results);
-        getAllPages(data.info.pages, "location");
+        getAllPages(data.info.pages, "location", data.results);
       })
       .catch((error) => console.error(error));
 
     get("episode")
       .then((data) => {
-        setEpisodes(data.results);
-        getAllPages(data.info.pages, "episode");
+        getAllPages(data.info.pages, "episode", data.results);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -53,25 +51,23 @@ function CharactersFilter() {
    * @param {String} endpoint
    * @return {Array} locations, episodes
    */
-  function getAllPages(maxPage, endpoint) {
-    let dataArray = [];
-
-    for (let page = 1; page <= maxPage; page++) {
+  function getAllPages(maxPage, endpoint, result) {
+    for (let page = 2; page <= maxPage; page++) {
       get(`${endpoint}?page=${page}`)
         // eslint-disable-next-line no-loop-func
         .then((data) => {
-          dataArray = [...dataArray, ...data.results];
+          result = [...result, ...data.results];
         })
         .catch((error) => console.error(error))
         // eslint-disable-next-line no-loop-func
         .finally(() => {
-          if (endpoint === "location") {
-            setLocations([...locations, ...dataArray]);
-            if (page === maxPage) {
-              getDimensions(dataArray);
+          if (page === maxPage) {
+            if (endpoint === "location") {
+              getDimensions(result);
+              setLocations(result);
+            } else if (endpoint === "episode") {
+              setEpisodes(result);
             }
-          } else if (endpoint === "episode") {
-            setEpisodes([...locations, ...dataArray]);
           }
         });
     }
