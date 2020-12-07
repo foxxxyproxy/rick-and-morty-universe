@@ -9,7 +9,7 @@ const FilterInfo = styled.div`
   border: 3px solid ${(p) => p.theme.primary};
   background: ${(p) => p.theme.primary};
   color: #fff;
-  box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
+  box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
 `;
 
 const Header = styled.h2`

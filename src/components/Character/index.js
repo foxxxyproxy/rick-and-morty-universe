@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   color: ${(p) => p.theme.headerColor};
   background: ${(p) => p.theme.primary};
-  box-shadow: -10px 10px 25px ${(p) => p.theme.shadowColor};
+  box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
   border-radius: 0.8em;
   width: 100%;
   padding: 2em;
