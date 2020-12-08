@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./utils/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import cursorImg from "./assets/cursor/pickle-rick-cursor.png";
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -23,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     color: ${(p) => p.theme.textColor};
     background: ${(p) => p.theme.pageBackground};
+    cursor: url(${cursorImg}), default !important;
   }
 
     body {

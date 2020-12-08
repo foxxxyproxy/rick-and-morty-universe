@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Loader from "../UI/Loader";
 import Card from "./Card";
+import useGetResidents from "../../utils/useGetResidents";
 
 const DimensionCharactersList = (props) => {
   const { dimension, locations } = props;
   const [filteredLocations, setFilteredLocations] = useState("");
   const [residents, setResidents] = useState([]);
-  const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { characters, loading } = useGetResidents(residents);
 
   useEffect(() => {
     if (dimension && locations) {
@@ -34,34 +34,6 @@ const DimensionCharactersList = (props) => {
     });
     setResidents(Array.from(uniqueResidents));
   }, [filteredLocations]);
-
-  useEffect(() => {
-    if (!residents) return;
-
-    let dataArray = [];
-    setCharacters([]);
-
-    residents.forEach((resident) => {
-      setLoading(true);
-
-      fetch(resident)
-        .then((response) => response.json())
-        .then((data) => {
-          if (!data) {
-            setLoading(false);
-          }
-          dataArray = [...dataArray, data];
-          setLoading(false);
-        })
-        .catch((error) => {
-          setLoading(false);
-        })
-        .finally(() => {
-          setCharacters(dataArray);
-          setLoading(false);
-        });
-    });
-  }, [residents]);
 
   function filterLocations() {
     let filteredLocations = locations.filter(

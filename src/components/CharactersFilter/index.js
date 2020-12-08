@@ -154,19 +154,9 @@ function CharactersFilter() {
       </Container>
 
       <Container>
-        {filter && selectedLocation && (
+        {filter && (selectedLocation || selectedEpisode) && (
           <CharactersList
-            isLocation={selectedLocation}
-            isEpisode={selectedEpisode}
-            residents={filter.residents}
-          />
-        )}
-
-        {filter && selectedEpisode && (
-          <CharactersList
-            isLocation={selectedLocation}
-            isEpisode={selectedEpisode}
-            residents={filter.characters}
+            residents={selectedLocation ? filter.residents : filter.characters}
           />
         )}
 

@@ -21,6 +21,12 @@ const Select = styled.select`
   margin-bottom: 1em;
   color: ${(p) => p.theme.textColor};
   font-weight: bold;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+  }
 `;
 
 const InnerLabel = styled(Label)`
