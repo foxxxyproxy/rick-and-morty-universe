@@ -10,7 +10,9 @@
 It runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser <br>
 
-Deployed prototype:https://rick-and-morty-universe.vercel.app/
+Deployed prototype:https://rick-and-morty-universe.vercel.app/ <br><br> 
+UPDATE: added an opportunity to store filters in URL<br> 
+Link with the update: https://rick-and-morty-universe-git-improvement.alexignatova.vercel.app/CharactersFilter/location/1
 
 ### TODO and thoughts
 There is still a big room for improvement like adding tests, split components into smaller ones. <br>
@@ -18,10 +20,10 @@ I'd like to add a pagination or something like that for showing big responses an
 
 
 I wanted to give the user an opportunity to see all possible values of locations/episodes/dimensions.<br>
-I think it's more comfortable for users, then input text :) <br>
+I think it's more comfortable for users then input text :) <br>
 <br>
 Due to there wasn't any opportunity (in API) to get all possible values of it at one time, I did a loop to get all data from all pages. <br>
-But I understand that for real projects it's not an efficient, way to make a filtration.<br>
+But I understand that for real projects it's not an efficient way to make a filtration.<br>
 
 ### Screenshots
 #### Desktop version
