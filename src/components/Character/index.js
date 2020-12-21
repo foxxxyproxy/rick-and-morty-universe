@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
+
 import styled from "styled-components";
 import { BASE_URL } from "../../utils/config";
 import useFetch from "../../utils/useFetch";
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
   border-radius: 0.8em;
   width: 100%;
   padding: 2em;
+  margin-bottom: 4em;
   @media (max-width: 576px) {
     flex-direction: column;
   }
@@ -28,6 +30,7 @@ const ImageWrapper = styled.div`
 
   @media (max-width: 576px) {
     padding: 0;
+    padding-bottom: 1em;
   }
   img {
     display: block;
@@ -42,6 +45,7 @@ function Character() {
 
   let { id } = useParams();
   const { get, loading } = useFetch(BASE_URL);
+  let history = useHistory();
 
   useEffect(() => {
     get(`character/${id}`)
@@ -64,6 +68,7 @@ function Character() {
     <>
       <Header />
       <Container>
+        <Link onClick={() => history.goBack()}>Back home</Link>
         <h1>Character's Info</h1>
         <Wrapper>
           <ImageWrapper>

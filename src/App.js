@@ -7,9 +7,13 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect exact from="/" to="/CharactersFilter" />
+        <Redirect exact from="/" to="/CharactersFilter/" />
         <Route exact path="/CharactersFilter" component={CharactersFilter} />
-        <Route exact path="/Character/:id" component={Character} />
+        <Route
+          path="/CharactersFilter/:filter/:id"
+          component={CharactersFilter}
+        />
+        <Route path="/Character/:id" component={Character} />
       </Switch>
     </BrowserRouter>
   );

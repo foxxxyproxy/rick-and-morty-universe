@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../utils/config";
-
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import Header from "../Header";
 import Container from "../UI/Container";
 import Loader from "../UI/Loader";
@@ -10,6 +10,7 @@ import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 import CharactersList from "./CharactersList";
 import DimensionCharactersList from "./DimensionCharactersList";
+import { generatePath } from "react-router";
 
 const Filters = styled.div`
   width: 49%;
@@ -29,6 +30,40 @@ function CharactersFilter() {
   const [selectedDimension, setSelectedDimension] = useState(null);
   const [filter, setFilter] = useState("");
   const { get, loading } = useFetch(BASE_URL);
+
+  const history = useHistory();
+  const match = useRouteMatch();
+  const params = useParams();
+
+  useEffect(() => {
+    if (!locations) return;
+    switch (params.filter) {
+      case "location":
+        const valueFromUrl = locations.filter(
+          (location) => location.id === parseInt(params.id, 10)
+        );
+        setSelectedLocation(JSON.stringify(valueFromUrl[0]));
+        setFilter(valueFromUrl[0]);
+        break;
+      case "episode":
+        const episodeFromUrl = episodes.filter(
+          (episode) => episode.id === parseInt(params.id, 10)
+        );
+        setSelectedEpisode(JSON.stringify(episodeFromUrl[0]));
+        setFilter(episodeFromUrl[0]);
+        break;
+      case "dimension":
+        const dimensionFromUrl = dimensions.filter(
+          (dimension) => dimension === decodeURIComponent(params.id)
+        );
+        console.log(dimensionFromUrl);
+        setSelectedDimension(JSON.stringify(dimensionFromUrl[0]));
+        setFilter(dimensionFromUrl[0]);
+        break;
+      default:
+        break;
+    }
+  }, [params, locations]);
 
   useEffect(() => {
     get("location")
@@ -84,24 +119,34 @@ function CharactersFilter() {
     setDimensions(Array.from(uniqueDimensions));
   }
 
+  function updateHistory(filter, targetValue) {
+    let value = JSON.parse(targetValue);
+    if (!params.filter && !params.id) {
+      history.push(`${match.path}/${filter}/${value.id ? value.id : value}`);
+    } else {
+      const path = generatePath(match.path, {
+        filter: filter,
+        id: value.id ? value.id : value,
+      });
+      history.push(path);
+    }
+  }
+
   function handleLocationChange(e) {
-    setSelectedLocation(e.target.value);
-    setFilter(JSON.parse(e.target.value));
     setSelectedEpisode("");
     setSelectedDimension("");
+    updateHistory("location", e.target.value);
   }
   function handleEpisodeChange(e) {
-    setSelectedEpisode(e.target.value);
-    setFilter(JSON.parse(e.target.value));
     setSelectedLocation("");
     setSelectedDimension("");
+    updateHistory("episode", e.target.value);
   }
 
   function handleDimensionChange(e) {
-    setSelectedDimension(e.target.value);
-    setFilter(JSON.parse(e.target.value));
     setSelectedLocation("");
     setSelectedEpisode("");
+    updateHistory("dimension", e.target.value);
   }
 
   return (
