@@ -36,7 +36,7 @@ function CharactersFilter() {
   const params = useParams();
 
   useEffect(() => {
-    if (!locations) return;
+    if (!locations || !episodes || !dimensions) return;
     switch (params.filter) {
       case "location":
         const valueFromUrl = locations.filter(
@@ -46,9 +46,9 @@ function CharactersFilter() {
         setFilter(valueFromUrl[0]);
         break;
       case "episode":
-        const episodeFromUrl = episodes.filter(
-          (episode) => episode.id === parseInt(params.id, 10)
-        );
+        const episodeFromUrl = episodes.filter((episode) => {
+          return episode.id === parseInt(params.id, 10);
+        });
         setSelectedEpisode(JSON.stringify(episodeFromUrl[0]));
         setFilter(episodeFromUrl[0]);
         break;
@@ -56,14 +56,13 @@ function CharactersFilter() {
         const dimensionFromUrl = dimensions.filter(
           (dimension) => dimension === decodeURIComponent(params.id)
         );
-        console.log(dimensionFromUrl);
         setSelectedDimension(JSON.stringify(dimensionFromUrl[0]));
         setFilter(dimensionFromUrl[0]);
         break;
       default:
         break;
     }
-  }, [params, locations]);
+  }, [params, locations, episodes, dimensions]);
 
   useEffect(() => {
     get("location")
