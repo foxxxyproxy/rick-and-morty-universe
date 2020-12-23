@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+
 import styled from "styled-components";
 import { BASE_URL } from "../../utils/config";
 import useFetch from "../../utils/useFetch";
@@ -7,6 +8,7 @@ import Loader from "../UI/Loader";
 import { getDateOnlyString } from "../../utils/helpers";
 import Container from "../UI/Container";
 import Header from "../Header";
+import ButtonBack from "../UI/Button";
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -18,6 +20,7 @@ const Wrapper = styled.div`
   border-radius: 0.8em;
   width: 100%;
   padding: 2em;
+  margin-bottom: 4em;
   @media (max-width: 576px) {
     flex-direction: column;
   }
@@ -28,6 +31,7 @@ const ImageWrapper = styled.div`
 
   @media (max-width: 576px) {
     padding: 0;
+    padding-bottom: 1em;
   }
   img {
     display: block;
@@ -39,14 +43,14 @@ const Info = styled.div``;
 
 function Character() {
   const [info, setInfo] = useState("");
-
-  let { id } = useParams();
   const { get, loading } = useFetch(BASE_URL);
+
+  let history = useHistory();
+  let { id } = useParams();
 
   useEffect(() => {
     get(`character/${id}`)
       .then((data) => {
-        //console.log(data);
         setInfo(data);
       })
       .catch((error) => console(error));
@@ -64,6 +68,9 @@ function Character() {
     <>
       <Header />
       <Container>
+        <ButtonBack onClick={() => history.goBack()}>
+          &#x21E6; Back home
+        </ButtonBack>
         <h1>Character's Info</h1>
         <Wrapper>
           <ImageWrapper>
