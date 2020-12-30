@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonUI = styled.button`
-  background: ${(p) => p.theme.primary};
-  box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+  background: ${(p) => p.theme.secondary};
+
   color: white;
   border: 0;
-  padding: 0.2em 1em;
-  min-width: 1em;
+  padding: 0.4em 1em;
+  min-width: 2em;
   font-size: 1rem;
-  max-height: 2em;
-  border-radius: 1em;
+  max-height: 3em;
+  border-radius: 0.8em;
   cursor: pointer;
   text-color: #fff;
   overflow: hidden;

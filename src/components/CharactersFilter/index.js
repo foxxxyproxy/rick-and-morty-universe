@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../utils/config";
 import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { generatePath } from "react-router";
+import useFetchAllData from "../../utils/useFetchAllData";
 import Header from "../Header";
 import Container from "../UI/Container";
 import Loader from "../UI/Loader";
-import useFetch from "../../utils/useFetch";
 import DropDown from "../UI/DropDown";
 import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 import CharactersList from "./CharactersList";
 import DimensionCharactersList from "./DimensionCharactersList";
-import { generatePath } from "react-router";
 
 const Filters = styled.div`
   width: 49%;
@@ -22,15 +21,12 @@ const Filters = styled.div`
 `;
 
 function CharactersFilter() {
-  const [locations, setLocations] = useState([]);
-  const [episodes, setEpisodes] = useState([]);
-  const [dimensions, setDimensions] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState("");
-  const [selectedDimension, setSelectedDimension] = useState(null);
+  const [selectedDimension, setSelectedDimension] = useState("");
   const [filter, setFilter] = useState("");
-  const { get, loading } = useFetch(BASE_URL);
 
+  const { locations, episodes, dimensions, loading } = useFetchAllData();
   const history = useHistory();
   const match = useRouteMatch();
   const params = useParams();
@@ -43,6 +39,8 @@ function CharactersFilter() {
           (location) => location.id === parseInt(params.id, 10)
         );
         setSelectedLocation(JSON.stringify(valueFromUrl[0]));
+        setSelectedEpisode("");
+        setSelectedDimension("");
         setFilter(valueFromUrl[0]);
         break;
       case "episode":
@@ -50,6 +48,8 @@ function CharactersFilter() {
           return episode.id === parseInt(params.id, 10);
         });
         setSelectedEpisode(JSON.stringify(episodeFromUrl[0]));
+        setSelectedLocation("");
+        setSelectedDimension("");
         setFilter(episodeFromUrl[0]);
         break;
       case "dimension":
@@ -57,66 +57,14 @@ function CharactersFilter() {
           (dimension) => dimension === decodeURIComponent(params.id)
         );
         setSelectedDimension(JSON.stringify(dimensionFromUrl[0]));
+        setSelectedEpisode("");
+        setSelectedLocation("");
         setFilter(dimensionFromUrl[0]);
         break;
       default:
         break;
     }
   }, [params, locations, episodes, dimensions]);
-
-  useEffect(() => {
-    get("location")
-      .then((data) => {
-        getAllPages(data.info.pages, "location", data.results);
-      })
-      .catch((error) => console.error(error));
-
-    get("episode")
-      .then((data) => {
-        getAllPages(data.info.pages, "episode", data.results);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
-  /**
-   * get data from all pages to fill the dropdowns
-   * (won't use it for a real project)
-   * @param {Number} maxPage
-   * @param {String} endpoint
-   * @return {Array} locations, episodes
-   */
-  function getAllPages(maxPage, endpoint, result) {
-    for (let page = 2; page <= maxPage; page++) {
-      get(`${endpoint}?page=${page}`)
-        // eslint-disable-next-line no-loop-func
-        .then((data) => {
-          result = [...result, ...data.results];
-        })
-        .catch((error) => console.error(error))
-        // eslint-disable-next-line no-loop-func
-        .finally(() => {
-          if (page === maxPage) {
-            if (endpoint === "location") {
-              getDimensions(result);
-              setLocations(result);
-            } else if (endpoint === "episode") {
-              setEpisodes(result);
-            }
-          }
-        });
-    }
-  }
-
-  /**
-   * get unique dimensions to fill the dropdown
-   * @param {Array} dataArray
-   * @return {Array} unique dimensions
-   */
-  function getDimensions(dataArray) {
-    let uniqueDimensions = new Set();
-    dataArray.forEach((item) => uniqueDimensions.add(item.dimension));
-    setDimensions(Array.from(uniqueDimensions));
-  }
 
   function updateHistory(filter, targetValue) {
     let value = JSON.parse(targetValue);
