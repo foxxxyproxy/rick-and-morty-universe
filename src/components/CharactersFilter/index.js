@@ -46,9 +46,9 @@ function CharactersFilter() {
         setFilter(valueFromUrl[0]);
         break;
       case "episode":
-        const episodeFromUrl = episodes.filter((episode) => {
-          return episode.id === parseInt(params.id, 10);
-        });
+        const episodeFromUrl = episodes.filter(
+          (episode) => episode.id === parseInt(params.id, 10)
+        );
         setSelectedEpisode(JSON.stringify(episodeFromUrl[0]));
         setFilter(episodeFromUrl[0]);
         break;
@@ -65,6 +65,7 @@ function CharactersFilter() {
   }, [params, locations, episodes, dimensions]);
 
   useEffect(() => {
+    console.log("get data");
     get("location")
       .then((data) => {
         getAllPages(data.info.pages, "location", data.results);
@@ -76,7 +77,29 @@ function CharactersFilter() {
         getAllPages(data.info.pages, "episode", data.results);
       })
       .catch((error) => console.error(error));
-  }, []);
+
+    function getAllPages(maxPage, endpoint, result) {
+      for (let page = 2; page <= maxPage; page++) {
+        get(`${endpoint}?page=${page}`)
+          // eslint-disable-next-line no-loop-func
+          .then((data) => {
+            result = [...result, ...data.results];
+          })
+          .catch((error) => console.error(error))
+          // eslint-disable-next-line no-loop-func
+          .finally(() => {
+            if (page === maxPage) {
+              if (endpoint === "location") {
+                getDimensions(result);
+                setLocations(result);
+              } else if (endpoint === "episode") {
+                setEpisodes(result);
+              }
+            }
+          });
+      }
+    }
+  }, [get]);
 
   /**
    * get data from all pages to fill the dropdowns
@@ -85,27 +108,6 @@ function CharactersFilter() {
    * @param {String} endpoint
    * @return {Array} locations, episodes
    */
-  function getAllPages(maxPage, endpoint, result) {
-    for (let page = 2; page <= maxPage; page++) {
-      get(`${endpoint}?page=${page}`)
-        // eslint-disable-next-line no-loop-func
-        .then((data) => {
-          result = [...result, ...data.results];
-        })
-        .catch((error) => console.error(error))
-        // eslint-disable-next-line no-loop-func
-        .finally(() => {
-          if (page === maxPage) {
-            if (endpoint === "location") {
-              getDimensions(result);
-              setLocations(result);
-            } else if (endpoint === "episode") {
-              setEpisodes(result);
-            }
-          }
-        });
-    }
-  }
 
   /**
    * get unique dimensions to fill the dropdown
