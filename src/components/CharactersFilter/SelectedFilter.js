@@ -18,10 +18,9 @@ const FilterInfo = styled.div`
   }
 `;
 
-const Title = styled.div`
-  //width: 100%;
+const Title = styled.span`
+  min-width: 50%;
   margin-right: 1em;
-  flex-wrap: nowrap;
 `;
 
 const Header = styled.h2`

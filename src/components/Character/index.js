@@ -42,12 +42,23 @@ const ImageWrapper = styled.div`
 const Info = styled.div`
   p {
     font-weight: bold;
+    line-height: 1.5;
   }
   span {
     background: ${(p) => p.theme.secondaryDark};
     padding: 5px;
     font-weight: bold;
     margin: 1em;
+  }
+`;
+
+const PageTitle = styled.h1`
+  text-align: center;
+  padding-left: 0.5em;
+  span {
+    background: ${(p) => p.theme.secondaryDark};
+    color: ${(p) => p.theme.textColor};
+    padding: 0 5px;
   }
 `;
 
@@ -81,7 +92,9 @@ function Character() {
         <ButtonBack onClick={() => history.goBack()}>
           &#x21E6; Back home
         </ButtonBack>
-        <h1>Character's Info</h1>
+        <PageTitle>
+          <span>{info.name}</span> — Personal Data
+        </PageTitle>
         <Wrapper>
           <ImageWrapper>
             <img src={info.image} alt={info.name} />

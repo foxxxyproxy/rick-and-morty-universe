@@ -8,7 +8,6 @@ const ContainerWrapper = styled.div`
   margin-bottom: 2em;
   display: flex;
   justify-content: space-between;
-  //align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
 

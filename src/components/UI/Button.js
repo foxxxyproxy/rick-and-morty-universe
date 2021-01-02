@@ -6,7 +6,7 @@ const ButtonUI = styled.button`
 
   color: white;
   border: 0;
-  padding: 0.4em 1em;
+  padding: 0.6em 1em;
   min-width: 2em;
   font-size: 1rem;
   max-height: 3em;
@@ -17,6 +17,7 @@ const ButtonUI = styled.button`
   :hover {
     opacity: 0.8;
   }
+  align-self: center;
 `;
 
 const Button = (props) => (

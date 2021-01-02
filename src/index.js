@@ -22,14 +22,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 16px;
     line-height: 1.2;
-    color: ${(p) => p.theme.textColor};
+    color: ${(p) => p.theme.primary};
     background: ${(p) => p.theme.pageBackground};
     cursor: url(${cursorImg}), default !important;
   }
 
     body {
       height: 100vh;
-      color: ${(p) => p.theme.textColor};
       background: ${(p) => p.theme.pageBackground};
     }
     
