@@ -28,15 +28,14 @@ But I understand that for real projects it's not an efficient way to make a filt
 #### Desktop version
 
 <p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/3.png" width="60%">
+  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/3.png" width="45%">
+  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/4.png" width="45%">
 </p>
-<p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/4.png" width="60%">
-</p>
+
 
 #### Mobile version
 
 <p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/1.png" width="35%">
+  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/1.png" width="35%"> 
   <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/2.png" width="35%">
 </p>
