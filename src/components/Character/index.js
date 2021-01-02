@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  color: ${(p) => p.theme.headerColor};
+  color: ${(p) => p.theme.textColor};
   background: ${(p) => p.theme.primary};
   box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
   border-radius: 0.8em;
@@ -39,7 +39,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Info = styled.div``;
+const Info = styled.div`
+  p {
+    font-weight: bold;
+  }
+  span {
+    background: ${(p) => p.theme.secondaryDark};
+    padding: 5px;
+    font-weight: bold;
+    margin: 1em;
+  }
+`;
 
 function Character() {
   const [info, setInfo] = useState("");
@@ -78,33 +88,34 @@ function Character() {
           </ImageWrapper>
           <Info>
             <p>
-              <b>Name: </b> {info.name}
+              Name: <span>{info.name}</span>
             </p>
             <p>
-              <b>Status: </b> {info.status}
+              Status: <span>{info.status}</span>
             </p>
             <p>
-              <b>Species: </b> {info.species}
+              Species: <span>{info.species}</span>
             </p>
             <p>
-              <b>Type: </b> {info.type || "Unknown"}
+              Type: <span>{info.type || "Unknown"}</span>
             </p>
             <p>
-              <b>Gender: </b> {info.gender}
+              Gender: <span>{info.gender}</span>
             </p>
             {info.origin && (
               <p>
-                <b>Origin: </b> {info.origin.name}
+                Origin: <span>{info.origin.name}</span>
               </p>
             )}
             {info.location && (
               <p>
-                <b>Location: </b> {info.location["name"]}
+                Location: <span>{info.location["name"]}</span>
               </p>
             )}
             {info.created && (
               <p>
-                <b>Created: </b> {getDateOnlyString(new Date(info.created))}
+                Created:
+                <span>{getDateOnlyString(new Date(info.created))}</span>
               </p>
             )}
           </Info>

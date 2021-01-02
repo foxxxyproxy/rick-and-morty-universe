@@ -5,7 +5,8 @@ const LinkWrapper = styled(NavLink)`
   display: none;
   text-decoration: none;
   cursor: pointer;
-  color: ${(p) => p.theme.headerColor};
+  color: ${(p) => p.theme.textColor};
+  font-weight: bold;
   background: ${(p) => p.theme.primary};
   border-radius: 0.8em;
   overflow: hidden;

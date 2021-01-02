@@ -6,9 +6,10 @@ const HIGHLIGHT_DARK = "#3BD98F";
 
 const colors = {
   headerColor: HIGLIGHT,
-  textColor: PRIMARY,
+  textColor: "white",
   primary: PRIMARY,
   secondary: SECONDARY,
+  secondaryDark: SECONDARY_DARK,
   pageBackground: "#ffffff",
   shadowColor: HIGHLIGHT_DARK,
   textColorSecondary: SECONDARY,

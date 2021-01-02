@@ -10,6 +10,18 @@ const FilterInfo = styled.div`
   background: ${(p) => p.theme.primary};
   color: #fff;
   box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+
+  div {
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 0.5em;
+  }
+`;
+
+const Title = styled.div`
+  //width: 100%;
+  margin-right: 1em;
+  flex-wrap: nowrap;
 `;
 
 const Header = styled.h2`
@@ -25,7 +37,7 @@ const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: auto;
-  width: 35%;
+  width: 40%;
   @media (max-width: 576px) {
     width: 100%;
   }
@@ -40,28 +52,40 @@ const SelectedFilter = (props) => {
       <FilterInfo>
         {isLocation && (
           <>
-            <p>
-              <b>Location name:</b> {filter.name}
-            </p>
-            <p>
-              <b>Dimension:</b> {filter.dimension}
-            </p>
-            <p>
-              <b>Type:</b> {filter.type}
-            </p>
+            <div>
+              <Title>Location name:</Title> <div>{filter.name}</div>
+            </div>
+            <div>
+              <Title>Dimension:</Title>
+              <div>{filter.dimension}</div>
+            </div>
+            <div>
+              <Title>Type:</Title>
+              <div>{filter.type}</div>
+            </div>
           </>
         )}
 
         {isEpisode && (
           <>
-            <p>{`Episode name: ${filter.name} (${filter.episode})`}</p>
-            <p>{`Date: ${filter.air_date}`} </p>
+            <div>
+              <Title>Episode name:</Title>
+              <div>
+                {filter.name} {`(${filter.episode})`}
+              </div>
+            </div>
+            <div>
+              <Title>Date:</Title>
+              <div>{filter.air_date}</div>
+            </div>
           </>
         )}
 
         {isDimension && (
           <>
-            <p>{`Dimension name: "${filter}" `}</p>
+            <div>
+              <Title>Dimension name:</Title> <div>{`"${filter}"`}</div>
+            </div>
           </>
         )}
       </FilterInfo>

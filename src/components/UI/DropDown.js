@@ -19,7 +19,7 @@ const Select = styled.select`
   background-position-x: calc(100% - 1em);
   background-position-y: 50%;
   margin-bottom: 1em;
-  color: ${(p) => p.theme.textColor};
+  color: ${(p) => p.theme.primary};
   font-weight: bold;
 
   &:hover,
@@ -31,6 +31,7 @@ const Select = styled.select`
 
 const InnerLabel = styled(Label)`
   top: 1.5rem;
+  cursor: pointer;
 `;
 
 const SelectWrapper = styled.div`
