@@ -19,6 +19,11 @@ const Filters = styled.div`
     width: 100%;
   }
 `;
+const ImageGrid = styled(Container)`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  grid-gap: 1rem;
+`;
 
 function CharactersFilter() {
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -145,7 +150,7 @@ function CharactersFilter() {
         )}
       </Container>
 
-      <Container>
+      <ImageGrid>
         {filter && (selectedLocation || selectedEpisode) && (
           <CharactersList
             residents={selectedLocation ? filter.residents : filter.characters}
@@ -155,7 +160,7 @@ function CharactersFilter() {
         {filter && selectedDimension && (
           <DimensionCharactersList dimension={filter} locations={locations} />
         )}
-      </Container>
+      </ImageGrid>
     </>
   );
 }

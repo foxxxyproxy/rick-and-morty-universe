@@ -33,6 +33,9 @@ const LinkWrapper = styled(NavLink)`
     margin: 0 auto;
   }
 `;
+const Img = styled.img`
+  max-width: 100%;
+`;
 
 const Card = (props) => {
   const { id, name, image } = props.info;
@@ -41,7 +44,7 @@ const Card = (props) => {
     <>
       <LinkWrapper to={`/Character/${id}`}>
         <div>
-          <img src={image} alt={name} />
+          <Img src={image} alt={name} />
         </div>
         <p>{name}</p>
       </LinkWrapper>
