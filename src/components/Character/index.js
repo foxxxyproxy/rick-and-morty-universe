@@ -16,18 +16,18 @@ const Wrapper = styled.div`
   flex-direction: row;
   color: ${(p) => p.theme.textColor};
   background: ${(p) => p.theme.primary};
-  box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+  //box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
   border-radius: 0.8em;
   width: 100%;
   padding: 2em;
-  margin-bottom: 4em;
+  margin-bottom: 6em;
   @media (max-width: 576px) {
     flex-direction: column;
   }
 `;
 
 const ImageWrapper = styled.div`
-  padding: 0 2em;
+  padding: 0 2.5em;
 
   @media (max-width: 576px) {
     padding: 0;

@@ -22,7 +22,7 @@ const LinkWrapper = styled(NavLink)`
 
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em;
+  //margin-bottom: 1.5em;
   padding-top: 1.5em;
   p {
     text-align: center;

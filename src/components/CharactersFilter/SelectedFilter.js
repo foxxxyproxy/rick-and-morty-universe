@@ -5,15 +5,13 @@ const FilterInfo = styled.div`
   padding: 0.5em 1.5em;
   border-radius: 0.8em;
   font-size: 1rem;
-  line-height: 1.2;
+  line-height: 1.5;
   border: 3px solid ${(p) => p.theme.primary};
   background: ${(p) => p.theme.primary};
   color: #fff;
-  box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+  //border: 5px solid ${(p) => p.theme.shadowColor};
 
   div {
-    font-weight: bold;
-    display: flex;
     margin-bottom: 0.5em;
   }
 `;
@@ -21,6 +19,7 @@ const FilterInfo = styled.div`
 const Title = styled.span`
   min-width: 50%;
   margin-right: 1em;
+  font-weight: bold;
 `;
 
 const Header = styled.h2`
@@ -36,7 +35,7 @@ const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: auto;
-  width: 40%;
+  width: 35%;
   @media (max-width: 576px) {
     width: 100%;
   }
