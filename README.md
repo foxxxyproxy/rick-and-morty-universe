@@ -15,7 +15,6 @@ Deployed prototype:https://rick-and-morty-universe.vercel.app/ <br><br>
 ### TODO and thoughts
 
 There is still a big room for improvement like adding tests, split components into smaller ones. <br>
-I'd like to add a pagination or something like that for showing big responses and make the image-grid more beautiful. <br>
 
 I wanted to give the user an opportunity to see all possible values of locations/episodes/dimensions.<br>
 I think it's more comfortable for users then input text :) <br>
