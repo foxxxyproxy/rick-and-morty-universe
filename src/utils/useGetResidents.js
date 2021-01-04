@@ -25,8 +25,10 @@ export default function useGetResidents(residents) {
           setLoading(false);
         })
         .finally(() => {
-          setCharacters(dataArray);
-          setLoading(false);
+          if (residents.length === dataArray.length) {
+            setCharacters(dataArray);
+            setLoading(false);
+          }
         });
     });
   }, [residents]);

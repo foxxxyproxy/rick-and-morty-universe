@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ButtonUI = styled.button`
   background: ${(p) => p.theme.secondary};
-
+  position: static;
   color: white;
   border: 0;
   padding: 0.6em 1em;
@@ -11,19 +11,25 @@ const ButtonUI = styled.button`
   font-size: 1rem;
   max-height: 3em;
   border-radius: 0.8em;
-  cursor: pointer;
+  cursor: ${(p) => (p.disabled ? "initial" : "pointer")}; 
   text-color: #fff;
   overflow: hidden;
+  opacity: ${(p) => (p.disabled ? 0.3 : 1)};
   :hover {
-    opacity: 0.8;
+    opacity: ${(p) => (p.disabled ? 0.3 : 0.8)};
   }
   align-self: center;
+
+  [
 `;
 
-const Button = (props) => (
-  <ButtonUI type={props.type} onClick={props.onClick}>
-    {props.children}
-  </ButtonUI>
-);
+const Button = (props) => {
+  const { children, type, onClick, ...rest } = props;
+  return (
+    <ButtonUI {...rest} type={type} onClick={onClick}>
+      {children}
+    </ButtonUI>
+  );
+};
 
 export default Button;
