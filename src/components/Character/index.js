@@ -42,13 +42,17 @@ const ImageWrapper = styled.div`
 const Info = styled.div`
   p {
     font-weight: bold;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-block-end: 0.7em;
+    margin-block-start: 0.7em;
   }
   span {
     background: ${(p) => p.theme.secondaryDark};
-    padding: 5px;
+    padding: 3px 8px;
     font-weight: bold;
     margin: 1em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 `;
 
@@ -58,7 +62,7 @@ const PageTitle = styled.h1`
   span {
     background: ${(p) => p.theme.secondaryDark};
     color: ${(p) => p.theme.textColor};
-    padding: 0 5px;
+    padding: 3px 8px;
   }
 `;
 
