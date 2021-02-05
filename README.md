@@ -22,19 +22,3 @@ I think it's more comfortable for users then input text :) <br>
 Due to there wasn't any opportunity (in API) to get all possible values of it at one time, I did a loop to get all data from all pages. <br>
 But I understand that for real projects it's not an efficient way to make a filtration.<br>
 
-### Screenshots
-
-#### Desktop version
-
-<p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/3.png" width="45%">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/4.png" width="45%">
-</p>
-
-
-#### Mobile version
-
-<p align="center">
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/1.png" width="35%"> 
-  <img src="https://github.com/foxxxyproxy/rick-and-morty-universe/blob/main/src/assets/screenshots/2.png" width="35%">
-</p>
