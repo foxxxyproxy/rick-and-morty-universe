@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import CharactersFilter from "./components/CharactersFilter";
 import Character from "./components/Character";
+import NotFoud from "./components/UI/NotFound";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           component={CharactersFilter}
         />
         <Route path="/Character/:id" component={Character} />
+        <Route>
+          <NotFoud />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
