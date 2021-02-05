@@ -47,7 +47,8 @@ const Info = styled.div`
     margin-block-start: 0.7em;
   }
   span {
-    background: ${(p) => p.theme.secondaryDark};
+    background: ${(p) => p.theme.pageBackground};
+    color: ${(p) => p.theme.primary};
     padding: 3px 8px;
     font-weight: bold;
     margin: 1em;
@@ -60,7 +61,7 @@ const PageTitle = styled.h1`
   text-align: center;
   padding-left: 0.5em;
   span {
-    background: ${(p) => p.theme.secondaryDark};
+    background: ${(p) => p.theme.secondary};
     color: ${(p) => p.theme.textColor};
     padding: 3px 8px;
   }
