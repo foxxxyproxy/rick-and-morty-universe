@@ -1,8 +1,8 @@
 import React from "react";
-
 import styled from "styled-components";
 
 const FooterWrap = styled.footer`
+  content-visibility: auto;
   position: relative;
   box-sizing: border-box;
   margin-top: auto;
@@ -19,7 +19,6 @@ const FooterWrap = styled.footer`
 const Square = styled.div`
   height: 150px;
   width: 150px;
-
   border: 1px solid hsla(0, 0%, 100%, 0.18);
   opacity: 0.3;
   transform: rotate(-15deg);

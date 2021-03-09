@@ -13,7 +13,9 @@ import DimensionCharactersList from "./DimensionCharactersList";
 import Footer from "../Footer";
 
 const Filters = styled.div`
-  width: 49%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-right: 150px;
   display: flex;
   flex-direction: column;
   @media (max-width: 576px) {

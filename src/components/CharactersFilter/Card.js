@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const LinkWrapper = styled(NavLink)`
-  //content-visibility: auto;
+  content-visibility: auto;
   display: none;
   text-decoration: none;
   cursor: pointer;
@@ -27,7 +27,7 @@ const LinkWrapper = styled(NavLink)`
   display: flex;
   flex-direction: column;
   //margin-bottom: 1.5em;
-  padding-top: 1.5em;
+  //padding-top: 1.5em;
   p {
     text-align: center;
     overflow: hidden;
@@ -48,7 +48,7 @@ const Card = (props) => {
     <>
       <LinkWrapper to={`/Character/${id}`}>
         <div>
-          <Img src={image} alt={name} />
+          <Img src={image} alt={name} height="300px" width="300px" />
         </div>
         <p>{name}</p>
       </LinkWrapper>

@@ -23,8 +23,15 @@ const HeaderWrap = styled.header`
     margin-bottom: 2em;
   }
   h1 {
-    color: ${(p) => p.theme.headerColor};
-    text-shadow: -2px 0px ${(p) => p.theme.shadowColor};
+    position: relative;
+    background: -webkit-linear-gradient(
+      319.11deg,
+      ${(p) => p.theme.headerColor} 0%,
+      ${(p) => p.theme.shadowColor} 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     @media (max-width: 576px) {
       font-size: 1.2rem;
     }
