@@ -105,6 +105,8 @@ function Character() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        position: "relative",
+        overflowX: "hidden",
       }}
     >
       <Header />

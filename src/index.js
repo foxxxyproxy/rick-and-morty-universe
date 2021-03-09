@@ -26,13 +26,13 @@ const GlobalStyle = createGlobalStyle`
     background: ${(p) => p.theme.pageBackground};
     
     cursor: url(${cursorImg}), default !important;
+
     
   }
 
     body {
       min-height: 100vh;
-      max-width: 100vw;
-      overflow-x: hidden
+
     }
     
     ::before,

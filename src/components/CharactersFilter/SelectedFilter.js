@@ -6,7 +6,6 @@ const FilterInfo = styled.div`
   font-size: 1rem;
   line-height: 1.5;
   color: #fff;
-
   div {
     margin-bottom: 0.5em;
   }
