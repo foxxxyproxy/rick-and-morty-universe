@@ -35,11 +35,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
     body {
-      //min-height: 100vh;
-      
-      //background: ${(p) => p.theme.pageBackground};
-      
-      //background: linear-gradient(180deg,#5095e4 20%,#5095e4 60%,#2f6ed3 95%);
+      min-height: 100vh;
     }
     
     ::before,

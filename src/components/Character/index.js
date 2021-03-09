@@ -68,6 +68,7 @@ const Info = styled.div`
 const PageTitle = styled.h1`
   text-align: center;
   padding-left: 0.5em;
+  font-size: 1.5em;
   span {
     background: ${(p) => p.theme.secondary};
     color: ${(p) => p.theme.textColor};
