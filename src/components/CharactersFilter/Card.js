@@ -2,22 +2,26 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const LinkWrapper = styled(NavLink)`
+  //content-visibility: auto;
   display: none;
   text-decoration: none;
   cursor: pointer;
-  color: ${(p) => p.theme.textColor};
+  color: #fff;
   font-weight: bold;
-  background: ${(p) => p.theme.primary};
-  border-radius: 0.8em;
   overflow: hidden;
-  opacity: 0.9;
+
+  background: ${(p) => p.theme.primary};
+  box-shadow: ${(p) => p.theme.boxShadow};
+  backdrop-filter: ${(p) => p.theme.backdropFilter};
+  border-radius: ${(p) => p.theme.borderRadius};
+  border: ${(p) => p.theme.border};
 
   &:hover,
   &:focus {
     outline: none;
     box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
     background-size: 150%;
-    opacity: 1;
+    opacity: 0.9;
   }
 
   display: flex;

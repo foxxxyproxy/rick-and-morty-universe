@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
   width: 95%;
+
   max-width: 60em;
   margin: 0 auto;
   margin-bottom: 2em;

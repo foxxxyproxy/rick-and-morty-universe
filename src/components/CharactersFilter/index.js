@@ -10,6 +10,7 @@ import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 import CharactersList from "./CharactersList";
 import DimensionCharactersList from "./DimensionCharactersList";
+import Footer from "../Footer";
 
 const Filters = styled.div`
   width: 49%;
@@ -97,7 +98,13 @@ function CharactersFilter() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Header />
       <Container>
         {loading && <Loader />}
@@ -154,7 +161,8 @@ function CharactersFilter() {
       {filter && selectedDimension && (
         <DimensionCharactersList dimension={filter} locations={locations} />
       )}
-    </>
+      <Footer />
+    </div>
   );
 }
 

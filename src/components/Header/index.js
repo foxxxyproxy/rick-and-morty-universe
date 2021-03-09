@@ -10,14 +10,8 @@ const HeaderWrap = styled.header`
   height: 6em;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background: linear-gradient(
-    135deg,
-    rgba(83, 111, 166, 1) 0%,
-    rgba(83, 111, 166, 1) 20%,
-    rgba(217, 82, 132, 1) 70%
-  );
-  box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
+  justify-content: center;
+
   padding: 0 2em;
   margin-bottom: 2em;
   @media (min-width: 576px) {
@@ -34,7 +28,7 @@ const HeaderWrap = styled.header`
 
 const AppLogo = styled(Link)`
   cursor: pointer;
-  margin-right: auto;
+  //margin-right: auto;
   padding-right: 2em;
 
   svg {

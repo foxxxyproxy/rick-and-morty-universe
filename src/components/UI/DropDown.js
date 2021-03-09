@@ -5,10 +5,12 @@ import { Label } from "./Label";
 
 const Select = styled.select`
   padding: 1.7em 2.5em 0.5em 1.5em;
-  border-radius: 0.8em;
+  margin-bottom: 1em;
+  color: ${(p) => p.theme.dropdownTextColor};
+  font-weight: bold;
   font-size: 1rem;
   line-height: 1.2;
-  border: 3px solid
+  border: 2px solid
     ${(p) => (p.isActive ? p.theme.headerColor : p.theme.primary)};
   appearance: none;
   cursor: pointer;
@@ -18,20 +20,22 @@ const Select = styled.select`
   background-size: 0.8em 0.4em;
   background-position-x: calc(100% - 1em);
   background-position-y: 50%;
-  margin-bottom: 1em;
-  color: ${(p) => p.theme.primary};
-  font-weight: bold;
+
+  box-shadow: ${(p) => p.theme.boxShadow};
+  backdrop-filter: ${(p) => p.theme.backdropFilter};
+  border-radius: ${(p) => p.theme.borderRadius};
 
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0px 0px 0px 5px ${(p) => p.theme.shadowColor};
+    box-shadow: 0px 0px 0px 3px ${(p) => p.theme.shadowColor};
   }
 `;
 
 const InnerLabel = styled(Label)`
   top: 1.5rem;
   cursor: pointer;
+  color: ${(p) => p.theme.dropdownTextColor};
 `;
 
 const SelectWrapper = styled.div`

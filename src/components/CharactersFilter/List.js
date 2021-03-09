@@ -9,9 +9,9 @@ import { MAX_PER_PAGE } from "../../utils/config";
 
 const ShowMoreButton = styled(Button)`
   position: relative;
-  bottom: 6em;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 4em;
+  //left: 50%;
+  //transform: translateX(-50%);
 `;
 
 const List = (props) => {
