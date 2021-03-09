@@ -7,6 +7,7 @@ import { darkTheme, defaultTheme } from "./utils/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import cursorImg from "./assets/cursor/pickle-rick-cursor.png";
+import BgImg from "./assets/img/bg.png";
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -24,13 +25,19 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     color: ${(p) => p.theme.textColor};
     background: ${(p) => p.theme.pageBackground};
+    //background-attachment: fixed;
+    //background-color: #fff;
+    //background-image: url(${BgImg});
+    //background-repeat: no-repeat;
+    //background-size: cover;
     cursor: url(${cursorImg}), default !important;
     
   }
 
     body {
-      min-height: 100vh;
-      background: ${(p) => p.theme.pageBackground};
+      //min-height: 100vh;
+      
+      //background: ${(p) => p.theme.pageBackground};
       
       //background: linear-gradient(180deg,#5095e4 20%,#5095e4 60%,#2f6ed3 95%);
     }

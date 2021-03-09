@@ -7,13 +7,19 @@ import styled from "styled-components";
 const HeaderWrap = styled.header`
   box-sizing: border-box;
   width: 100%;
-  height: 6em;
+  height: 15em;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(217, 82, 132, 0.25);
+  box-shadow: ${(p) => p.theme.boxShadow};
+  backdrop-filter: ${(p) => p.theme.backdropFilter};
+  border-radius: ${(p) => p.theme.borderRadius};
+  border: ${(p) => p.theme.border};
+  clip-path: polygon(0px 0px, 100% 0px, 100% 81%, 1px 96.88%);
 
   padding: 0 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   @media (min-width: 576px) {
     margin-bottom: 4em;
   }
