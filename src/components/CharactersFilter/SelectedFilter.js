@@ -6,14 +6,6 @@ const FilterInfo = styled.div`
   font-size: 1rem;
   line-height: 1.5;
   color: #fff;
-  //width: 250px;
-  //height: 250px;
-
-  //background: ${(p) => p.theme.primary};
-  //box-shadow: ${(p) => p.theme.boxShadow};
-  //backdrop-filter: ${(p) => p.theme.backdropFilter};
-  //border-radius: ${(p) => p.theme.borderRadius};
-  //border: ${(p) => p.theme.border};
 
   div {
     margin-bottom: 0.5em;
@@ -29,8 +21,6 @@ const Title = styled.span`
 const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
-  //margin-left: auto;
-  //width: 35%;
   @media (max-width: 576px) {
     width: 100%;
   }

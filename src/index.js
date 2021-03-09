@@ -31,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
       min-height: 100vh;
+      max-width: 100vw;
       overflow-x: hidden
     }
     
