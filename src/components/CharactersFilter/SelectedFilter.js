@@ -2,41 +2,26 @@ import styled from "styled-components";
 
 const FilterInfo = styled.div`
   box-sizing: border-box;
-  padding: 0.5em 1.5em;
-  border-radius: 0.8em;
+  padding: 0;
   font-size: 1rem;
   line-height: 1.5;
-  border: 3px solid ${(p) => p.theme.primary};
-  background: ${(p) => p.theme.primary};
   color: #fff;
-  //border: 5px solid ${(p) => p.theme.shadowColor};
-
   div {
     margin-bottom: 0.5em;
   }
 `;
 
 const Title = styled.span`
-  min-width: 50%;
   margin-right: 1em;
   font-weight: bold;
 `;
 
-const Header = styled.h2`
-  margin-top: -1.5em;
-  margin-bottom: 0.5em;
-  line-height: 1;
-  @media (max-width: 576px) {
-    margin-top: 1em;
-  }
-`;
-
 const FilterContainer = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  width: 35%;
-  @media (max-width: 576px) {
+  margin: 0 auto;
+  @media (max-width: 997px) {
     width: 100%;
   }
 `;
@@ -46,8 +31,7 @@ const SelectedFilter = (props) => {
   const { filter, isLocation, isEpisode, isDimension } = props;
   return (
     <FilterContainer>
-      <Header>You selected:</Header>
-      <FilterInfo>
+      <FilterInfo title="Filter you selected">
         {isLocation && (
           <>
             <div>

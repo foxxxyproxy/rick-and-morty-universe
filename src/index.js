@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "./utils/theme";
+import { darkTheme } from "./utils/theme";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import cursorImg from "./assets/cursor/pickle-rick-cursor.png";
@@ -11,7 +11,6 @@ import cursorImg from "./assets/cursor/pickle-rick-cursor.png";
 const GlobalStyle = createGlobalStyle`
   ${normalize}
   :root {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
@@ -22,26 +21,21 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 16px;
     line-height: 1.2;
-    color: ${(p) => p.theme.primary};
+    color: ${(p) => p.theme.textColor};
     background: ${(p) => p.theme.pageBackground};
     cursor: url(${cursorImg}), default !important;
   }
-
-    body {
-      height: 100vh;
-      background: ${(p) => p.theme.pageBackground};
-    }
     
-    ::before,
-    ::after {
-      box-sizing: inherit;
-    }
+  ::before,
+  ::after {
+    box-sizing: inherit;
+  }
   
 `;
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
       <App />
     </ThemeProvider>

@@ -7,25 +7,31 @@ import styled from "styled-components";
 const HeaderWrap = styled.header`
   box-sizing: border-box;
   width: 100%;
-  height: 6em;
+  height: 12em;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background: linear-gradient(
-    135deg,
-    rgba(83, 111, 166, 1) 0%,
-    rgba(83, 111, 166, 1) 20%,
-    rgba(217, 82, 132, 1) 70%
-  );
-  box-shadow: 0px 3px 10px ${(p) => p.theme.shadowColor};
+  justify-content: center;
+  background: rgba(217, 82, 132, 0.25);
+  box-shadow: ${(p) => p.theme.boxShadow};
+  backdrop-filter: ${(p) => p.theme.backdropFilter};
+
+  clip-path: polygon(0px 0px, 100% 0px, 100% 71%, 0px 100%);
+
   padding: 0 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   @media (min-width: 576px) {
-    margin-bottom: 4em;
+    margin-bottom: 2em;
   }
   h1 {
-    color: ${(p) => p.theme.headerColor};
-    text-shadow: -2px 0px ${(p) => p.theme.shadowColor};
+    position: relative;
+    background: -webkit-linear-gradient(
+      319.11deg,
+      ${(p) => p.theme.headerColor} 0%,
+      ${(p) => p.theme.shadowColor} 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     @media (max-width: 576px) {
       font-size: 1.2rem;
     }
@@ -34,7 +40,7 @@ const HeaderWrap = styled.header`
 
 const AppLogo = styled(Link)`
   cursor: pointer;
-  margin-right: auto;
+  //margin-right: auto;
   padding-right: 2em;
 
   svg {
@@ -42,13 +48,17 @@ const AppLogo = styled(Link)`
   }
 `;
 
-const Header = (props) => (
-  <HeaderWrap>
-    <AppLogo to="/" aria-label="logo">
-      <LogoIcon />
-    </AppLogo>
-    <h1>The Rick and Morty Universe</h1>
-  </HeaderWrap>
-);
+const Header = (props) => {
+  return (
+    <>
+      <HeaderWrap>
+        <AppLogo to="/" aria-label="logo">
+          <LogoIcon />
+        </AppLogo>
+        <h1>The Rick and Morty Universe</h1>
+      </HeaderWrap>
+    </>
+  );
+};
 
 export default Header;

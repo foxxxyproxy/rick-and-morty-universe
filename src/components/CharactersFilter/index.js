@@ -10,12 +10,14 @@ import SelectedFilter from "./SelectedFilter";
 import styled from "styled-components";
 import CharactersList from "./CharactersList";
 import DimensionCharactersList from "./DimensionCharactersList";
+import Footer from "../Footer";
 
 const Filters = styled.div`
-  width: 49%;
+  grid-column: 1/3;
+  padding-right: 150px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 576px) {
+  @media (max-width: 660px) {
     width: 100%;
   }
 `;
@@ -97,7 +99,16 @@ function CharactersFilter() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <Header />
       <Container>
         {loading && <Loader />}
@@ -154,7 +165,8 @@ function CharactersFilter() {
       {filter && selectedDimension && (
         <DimensionCharactersList dimension={filter} locations={locations} />
       )}
-    </>
+      <Footer />
+    </div>
   );
 }
 

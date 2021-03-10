@@ -2,16 +2,21 @@ import Loader from "../UI/Loader";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import Container from "../UI/Container";
+
 import { ImageGrid } from "../UI/ImageGrid";
 import Button from "../UI/Button";
 import { MAX_PER_PAGE } from "../../utils/config";
 
 const ShowMoreButton = styled(Button)`
   position: relative;
-  bottom: 6em;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 4em;
+  //left: 50%;
+  //transform: translateX(-50%);
+`;
+
+const Container = styled.div`
+  //width: 95%;
+  margin: 0 auto;
 `;
 
 const List = (props) => {
@@ -45,7 +50,7 @@ const List = (props) => {
   if (!characters || characters.length === 0) {
     return (
       <Container>
-        <div style={{ margin: "0 auto" }}>No characters to show</div>
+        <span style={{ textAlign: "center" }}>No characters to show</span>
       </Container>
     );
   }

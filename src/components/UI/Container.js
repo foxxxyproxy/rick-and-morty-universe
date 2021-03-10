@@ -6,14 +6,9 @@ const ContainerWrapper = styled.div`
   max-width: 60em;
   margin: 0 auto;
   margin-bottom: 2em;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  @media (max-width: 576px) {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  grid-gap: 1.5rem;
 `;
 
 const Container = (props) => {
