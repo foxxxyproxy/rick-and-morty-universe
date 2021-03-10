@@ -13,12 +13,11 @@ import DimensionCharactersList from "./DimensionCharactersList";
 import Footer from "../Footer";
 
 const Filters = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column: 1/3;
   padding-right: 150px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 576px) {
+  @media (max-width: 660px) {
     width: 100%;
   }
 `;
@@ -105,8 +104,9 @@ function CharactersFilter() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         position: "relative",
-        overflowX: "hidden",
+        overflow: "hidden",
       }}
     >
       <Header />

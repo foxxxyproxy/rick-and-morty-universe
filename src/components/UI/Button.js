@@ -18,7 +18,6 @@ const ButtonUI = styled.button`
   backdrop-filter: ${(p) => p.theme.backdropFilter};
   border-radius: ${(p) => p.theme.borderRadius};
   border: ${(p) => p.theme.border};
-  //-webkit-backdrop-filter: blur(4px);
 
   opacity: ${(p) => (p.disabled ? 0.3 : 1)};
   :hover {

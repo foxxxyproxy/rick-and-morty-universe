@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const FilterInfo = styled.div`
   box-sizing: border-box;
-  padding: 0.5em 0;
+  padding: 0;
   font-size: 1rem;
   line-height: 1.5;
   color: #fff;
@@ -12,15 +12,16 @@ const FilterInfo = styled.div`
 `;
 
 const Title = styled.span`
-  min-width: 50%;
   margin-right: 1em;
   font-weight: bold;
 `;
 
 const FilterContainer = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 576px) {
+  margin: 0 auto;
+  @media (max-width: 997px) {
     width: 100%;
   }
 `;

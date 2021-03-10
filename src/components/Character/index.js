@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-
 import styled from "styled-components";
+
 import { BASE_URL } from "../../utils/config";
 import useFetch from "../../utils/useFetch";
-import Loader from "../UI/Loader";
 import { getDateOnlyString } from "../../utils/helpers";
 
+import Loader from "../UI/Loader";
 import Header from "../Header";
 import Footer from "../Footer";
 import ButtonBack from "../UI/Button";
@@ -27,14 +27,14 @@ const Wrapper = styled.main`
 
   padding: 2em;
   margin-bottom: 6em;
-  @media (max-width: 576px) {
+  @media (max-width: 660px) {
     flex-direction: column;
   }
 `;
 
 const ImageWrapper = styled.div`
   padding: 0 2.5em;
-  @media (max-width: 576px) {
+  @media (max-width: 660px) {
     padding: 0;
     padding-bottom: 1em;
   }
@@ -105,8 +105,9 @@ function Character() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         position: "relative",
-        overflowX: "hidden",
+        overflow: "hidden",
       }}
     >
       <Header />

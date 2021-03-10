@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
 import CharactersFilter from "./components/CharactersFilter";
 import Character from "./components/Character";
 import NotFoud from "./components/UI/NotFound";

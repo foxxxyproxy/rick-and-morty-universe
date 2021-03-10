@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const LinkWrapper = styled(NavLink)`
-  content-visibility: auto;
+  //content-visibility: auto;
   max-width: 300px;
   display: none;
   text-decoration: none;
